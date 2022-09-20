@@ -9,4 +9,4 @@ F280049C protocols
 - SCI transfer
 - SCI receive
 - Parse received data (char(unsigned) -> 16-bit_int(uint16_t))
-- ~~Data transformation~~ (work on progress)
+- Make SCI(UART) packet
