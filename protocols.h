@@ -17,5 +17,6 @@
 void sendDataSCI(uint32_t SelSCI, uint16_t * TrsData, SCI_TxFIFOLevel size);
 void rcvCmdData(uint32_t SelSCI, uint16_t * RcvData, SCI_RxFIFOLevel size);
 void parseMsgSCI(uint16_t *DataFrame, uint16_t* CmdData);
+void makePacketSCI(uint16_t* dataFrame, uint16_t* packet_data, uint16_t ID, uint16_t len, uint16_t target);
 
 #endif /* INC_PROTOCOLS_H_ */
