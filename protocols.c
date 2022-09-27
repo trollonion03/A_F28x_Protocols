@@ -16,7 +16,7 @@
 
 uint16_t RxReadyFlag = 0;
 uint16_t RxCopyCount = 0;
-extern uint16_t receivedChar[16];
+uint16_t receivedChar[16];
 
 void sendDataSCI(uint32_t SelSCI, uint16_t * TrsData, SCI_TxFIFOLevel size) {
     uint16_t i, rACK[16];
