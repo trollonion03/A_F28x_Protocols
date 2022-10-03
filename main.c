@@ -26,7 +26,6 @@
 uint16_t counter = 0; //unsigned int.
 volatile uint16_t sData[16];
 volatile uint16_t rData[16];
-unsigned char *msg;
 unsigned char data[16];
 
 uint16_t cmd[16];
@@ -101,10 +100,6 @@ void main(void)
     SCI_lockAutobaud(SCIA_BASE);
 #endif
 
-    // Send starting message.
-    msg = "\r\nKJPL_Launcher\n\0";
-    SCI_writeCharArray(SCIA_BASE, (uint16_t*)msg, 17);
-
     // Clear the SCI interrupts before enabling them.
     SCI_clearInterruptStatus(SCIA_BASE, SCI_INT_TXFF | SCI_INT_RXFF);
 
@@ -131,8 +126,7 @@ __interrupt void sciaTxISR(void) {
     // Disable the TXRDY interrupt.
     SCI_disableInterrupt(SCIA_BASE, SCI_INT_TXRDY);
 
-    msg = "\r\nEnter a character: \0";
-    SCI_writeCharArray(SCIA_BASE, (uint16_t*)msg, 22);
+    SCI_writeCharArray(SCIA_BASE, 0, 22);
 
     // Ackowledge the PIE interrupt.
     Interrupt_clearACKGroup(INTERRUPT_ACK_GROUP9);
