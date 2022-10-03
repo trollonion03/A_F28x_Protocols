@@ -12,7 +12,9 @@
 #ifndef INC_PROTOCOLS_H_
 #define INC_PROTOCOLS_H_
 
-
+extern uint16_t RxReadyFlag;
+extern uint16_t RxCopyCount;
+extern uint16_t receivedChar[16];
 
 void sendDataSCI(uint32_t SelSCI, uint16_t * TrsData, SCI_TxFIFOLevel size);
 void rcvCmdData(uint32_t SelSCI, uint16_t * RcvData, SCI_RxFIFOLevel size);
